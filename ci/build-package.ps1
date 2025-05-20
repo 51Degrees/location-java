@@ -1,7 +1,7 @@
 param(
     [Parameter(Mandatory)][string]$RepoName,
     [Parameter(Mandatory)][string]$Version,
-    [Parameter(Mandatory)][Hashtable]$Keys
+    [Parameter(Mandatory)][Hashtable]$Keys,
     [string]$Name
 )
 
