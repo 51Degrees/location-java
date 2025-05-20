@@ -1,1 +1,1 @@
-Write-Output "No pre build"
+Write-Host "No pre build"

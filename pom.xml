@@ -70,7 +70,6 @@
 
         <maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
         <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
-        <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
         <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
@@ -78,16 +77,10 @@
         <maven-javadoc-plugin.version>3.3.2</maven-javadoc-plugin.version>
         <maven-jarsigner-plugin.version>3.0.0</maven-jarsigner-plugin.version>
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
-
-        <ossrh.baseurl>https://oss.sonatype.org</ossrh.baseurl>
-        <snapshot-repository.id>ossrh</snapshot-repository.id>
-        <snapshot-repository.url>${ossrh.baseurl}/content/repositories/snapshots/</snapshot-repository.url>
-        <publishrepository.id>ossrh</publishrepository.id>
-        <publishrepository.url>${ossrh.baseurl}/service/local/staging/deploy/maven2/</publishrepository.url>
-        <fetchrepository.id>central</fetchrepository.id>
-        <fetchrepository.url>https://repo1.maven.org/maven2</fetchrepository.url>
+        <central-publishing-maven-plugin.version>0.7.0</central-publishing-maven-plugin.version>
 
         <skippackagesign>true</skippackagesign>
+        <skipPublishing>false</skipPublishing>
     </properties>
 
     <dependencyManagement>
@@ -174,14 +167,15 @@
 
         <plugins>
          <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.13</version>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>${central-publishing-maven-plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>${publishrepository.id}</serverId>
-                    <nexusUrl>${ossrh.baseurl}</nexusUrl>
-                    <altStagingDirectory>${user.home}/.m2</altStagingDirectory>
+                    <skipPublishing>${skipPublishing}</skipPublishing>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
+                    <waitUntil>published</waitUntil>
                 </configuration>
             </plugin>
             <plugin>
@@ -308,40 +302,6 @@
             </plugin>
         </plugins>
     </build>
-
-    <distributionManagement>
-        <repository>
-            <id>${publishrepository.id}</id>
-            <url>${publishrepository.url}</url>
-        </repository>
-        <snapshotRepository>
-            <id>${snapshot-repository.id}</id>
-            <url>${snapshot-repository.url}</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <repositories>
-        <repository>
-            <id>${fetchrepository.id}</id>
-            <url>${fetchrepository.url}</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>${snapshot-repository.id}</id>
-            <url>${snapshot-repository.url}</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
     <licenses>
         <license>

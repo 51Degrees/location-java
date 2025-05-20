@@ -1,12 +1,7 @@
-
 param(
-    [string]$ProjectDir = ".",
+    [Parameter(Mandatory)][string]$RepoName,
+    [Parameter(Mandatory)][hashtable]$Keys,
     [string]$Name,
-    [hashtable]$Keys,
-    [Parameter(Mandatory=$true)]
-    [string]$RepoName
 )
 
-./java/run-unit-tests.ps1 -RepoName $RepoName -ProjectDir $ProjectDir -Name $Name -ExtraArgs "-DSuperResourceKey=$($Keys.TestResourceKey)"
-
-exit $LASTEXITCODE
+./java/run-unit-tests.ps1 -RepoName $RepoName -Name $Name -ExtraArgs "-DSuperResourceKey=$($Keys.TestResourceKey)"
