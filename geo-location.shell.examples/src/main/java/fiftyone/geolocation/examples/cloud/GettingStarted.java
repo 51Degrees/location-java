@@ -45,7 +45,7 @@ import static fiftyone.geolocation.core.Constants.EVIDENCE_GEO_LON_PARAM_KEY;
  * This example is available in full on [GitHub](https://github.com/51Degrees/location-java/blob/master/geo-location.shell.examples/src/main/java/fiftyone/geolocation/examples/cloud/GettingStarted.java).
  *
  * Required Maven Dependencies:
- * - com.51degrees.geo-location
+ * - [com.51degrees.geo-location](https://central.sonatype.com/artifact/com.51degrees/geo-location/)
  *
  * 1. Build a new Pipeline to use the 51Degrees cloud service, with lazy loading
  * configured to allow up to a second for a response from the service.

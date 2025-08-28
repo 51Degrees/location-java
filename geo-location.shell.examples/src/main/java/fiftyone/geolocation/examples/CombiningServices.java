@@ -56,8 +56,8 @@ import static fiftyone.pipeline.core.Constants.EVIDENCE_HEADER_USERAGENT_KEY;
  * This example is available in full on [GitHub](https://github.com/51Degrees/location-java/blob/master/geo-location.shell.examples/src/main/java/fiftyone/geolocation/examples/CombiningServices.java).
  *
  * Required Maven Dependencies:
- * - com.51degrees.geo-location
- * - com.51degrees.device-detection
+ * - [com.51degrees.geo-location](https://central.sonatype.com/artifact/com.51degrees/geo-location/)
+ * - [com.51degrees.device-detection](https://central.sonatype.com/artifact/com.51degrees/device-detection/)
  *
  * 1. Build new cloud-based geo-location, and device detection engines, along
  * with the cloud request engine on which they rely.
