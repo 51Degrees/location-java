@@ -6,7 +6,7 @@ The following secrets are required:
     * Example: `github_pat_l0ng_r4nd0m_s7r1ng`
 
 The following secrets are requred to run cloud tests:
-* `SUPER_RESOURCE_KEY` - [resource key](https://51degrees.com/documentation/4.4/_info__resource_keys.html) for integration tests
+* `SUPER_RESOURCE_KEY` - [resource key](https://51degrees.com/documentation/_info__resource_keys.html?utm_source=github&utm_medium=readme&utm_campaign=location-java&utm_content=ci-readme.md&utm_term=api-specific-ci-cd-approach) for integration tests
     * Example: `R4nd0m-S7r1ng`
 
 The following secrets are required for publishing releases (this should only be needed by 51Degrees):
