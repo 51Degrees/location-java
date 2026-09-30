@@ -101,13 +101,27 @@ public class CloudGeoDataDefault extends GeoDataDefault implements CloudGeoData 
     }
 
     @Override
+    public AspectPropertyValue<String> getCountryCode3() {
+        return getValueAsString("countrycode3");
+    }
+
+    @Override
+    public AspectPropertyValue<Integer> getTimeZoneOffset() {
+        return getValueAs("timezoneoffset");
+    }
+
+    @Override
     public AspectPropertyValue<String> getAddress() {
         return getValueAsString("address");
     }
 
-    @SuppressWarnings("unchecked")
     private AspectPropertyValue<String> getValueAsString(String key) {
-        AspectPropertyValue<String> value = getAs(key, AspectPropertyValue.class);
+        return getValueAs(key);
+    }
+
+    @SuppressWarnings("unchecked")
+    private <T> AspectPropertyValue<T> getValueAs(String key) {
+        AspectPropertyValue<T> value = getAs(key, AspectPropertyValue.class);
 
         if(noValueReasons.containsKey(key))
             value.setNoValueMessage(noValueReasons.get(key));

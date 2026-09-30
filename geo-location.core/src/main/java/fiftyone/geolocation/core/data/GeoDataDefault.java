@@ -153,6 +153,28 @@ public class GeoDataDefault extends AspectDataBase implements GeoData {
 
     @SuppressWarnings("unchecked")
     @Override
+    public AspectPropertyValue<String> getCountryCode3() {
+        return getAs("countrycode3", AspectPropertyValue.class);
+    }
+
+    @Override
+    public void setCountryCode3(AspectPropertyValue<String> countryCode3) {
+        put("countrycode3", countryCode3);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public AspectPropertyValue<Integer> getTimeZoneOffset() {
+        return getAs("timezoneoffset", AspectPropertyValue.class);
+    }
+
+    @Override
+    public void setTimeZoneOffset(AspectPropertyValue<Integer> timeZoneOffset) {
+        put("timezoneoffset", timeZoneOffset);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
     public AspectPropertyValue<String> getAddress() {
         return getAs("address", AspectPropertyValue.class);
     }

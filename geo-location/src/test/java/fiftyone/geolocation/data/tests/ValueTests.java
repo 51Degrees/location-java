@@ -37,6 +37,7 @@ import java.util.List;
 import java.util.Map;
 
 import static fiftyone.pipeline.util.StringManipulation.stringJoin;
+import static fiftyone.pipeline.util.Types.getPrimitiveTypeMap;
 import static org.junit.Assert.*;
 
 public class ValueTests {
@@ -60,6 +61,9 @@ public class ValueTests {
                     Object value = elementData.get(property.getName());
 
                     expectedType = property.getType();
+                    if (expectedType.isPrimitive()) {
+                        expectedType = getPrimitiveTypeMap().get(expectedType);
+                    }
                     assertNotNull("Value of " + property.getName() + " is null. ", value);
                     assertTrue("Value of '" + property.getName() +
                             "' was of type " + value.getClass().getSimpleName() +
@@ -144,6 +148,7 @@ public class ValueTests {
                     } catch (NoSuchMethodException e) {
                         missingGetters.add(property.getName());
                     }
+                }
             }
             if (missingGetters.size() > 0) {
                 if (missingGetters.size() == 1) {
@@ -156,7 +161,7 @@ public class ValueTests {
                 } else {
                     fail("The properties " +
                         stringJoin(missingGetters, ", ") +
-                        "are missing getters in the GeoData class. This is not " +
+                        " are missing getters in the GeoData class. This is not " +
                         "a serious issue, and the properties can still be used " +
                         "through the asMap method, but it is an indication " +
                         "that the API should be updated in order to enable the " +
@@ -165,5 +170,4 @@ public class ValueTests {
             }
         }
     }
-  }
 }
