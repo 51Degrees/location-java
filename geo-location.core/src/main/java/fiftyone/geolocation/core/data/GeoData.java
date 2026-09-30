@@ -57,6 +57,12 @@ public interface GeoData extends AspectData {
     AspectPropertyValue<String> getCountryCode();
     void setCountryCode(AspectPropertyValue<String> countryCode);
 
+    AspectPropertyValue<String> getCountryCode3();
+    void setCountryCode3(AspectPropertyValue<String> countryCode3);
+
+    AspectPropertyValue<Integer> getTimeZoneOffset();
+    void setTimeZoneOffset(AspectPropertyValue<Integer> timeZoneOffset);
+
     AspectPropertyValue<String> getAddress();
     void setAddress(AspectPropertyValue<String> address);
     
