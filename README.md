@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repo has been merged into the monorepo https://github.com/51Degrees/51degrees-java, under `location/`. Please refer to the new monorepository for issues and PRs. The Maven packages keep their coordinates and are published from there, from version 4.5.127.
+
 # 51Degrees Geo-Location Engines
 
 ![51Degrees](https://51degrees.com/img/logo.png?utm_source=github&utm_medium=readme&utm_campaign=location-java&utm_content=readme.md&utm_term=51degrees-geo-location-engines "Data rewards the curious") **Pipeline API**
